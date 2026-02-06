@@ -39,7 +39,7 @@ let info: string = `Имя ${firstName}`;
 ```
 
 * **Array:** массивы <br>
-В TypeScript массивы могут быть типизированы несколькими способами:
+В TypeScript массивы могут быть типизированы несколькими способами: <br>
 1: Используя `[]` (наиболее распространенный)
 ``` TypeScript
 // Массив чисел
@@ -74,6 +74,21 @@ let mixed: Array<string | number> = ["hello", 42, "world"];
 ```
 
 * Кортежи
+Кортежи — это особый тип массива с фиксированной длиной и заранее известными типами для каждой позиции
+``` TypeScript
+// Простой кортеж: [тип1, тип2, тип3]
+let person: [string, number, boolean] = ["John", 30, true];
+
+// Типы строго соблюдаются по позициям
+person[0] = "Alice";  // ✅ OK - string
+person[1] = 25;       // ✅ OK - number
+person[2] = false;    // ✅ OK - boolean
+
+// Ошибки типов
+person[0] = 100;      // ❌ Error: number не присвоить string
+person[1] = "Jane";   // ❌ Error: string не присвоить number
+person[3] = "extra";  // ❌ Error: индекс 3 не существует
+```
 
 * Enum: перечисления
 

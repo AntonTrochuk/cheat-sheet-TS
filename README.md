@@ -18,6 +18,12 @@ let hello: string = "hello world";
 #### В TypeScript имеются следующие базовые типы:
 
 * boolean: логическое значение true или false
+``` TypeScript
+let isTrue: boolean = true;
+let isFalse: boolean = false;
+```
+
+* number: числовое значение <br>
 C помощью данного типа можно определять как целые числа, так и числа с плавающей точкой. TS поддерживает двоичную, восьмеричную, десятичную и шестнадцатиричную записи чисел.
 ``` TypeScript
 let age: number = 36;
@@ -25,8 +31,6 @@ let height: number = 1.68;
 let hex: number = 0xf00d;
 let binary: number = 0b1010;
 ```
-
-* number: числовое значение
 
 * string: строки
 

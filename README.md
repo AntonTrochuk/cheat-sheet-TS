@@ -17,13 +17,13 @@ let hello: string = "hello world";
 
 #### В TypeScript имеются следующие базовые типы:
 
-* **boolean: логическое значение true или false**
+* **boolean:** логическое значение true или false
 ``` TypeScript
 let isTrue: boolean = true;
 let isFalse: boolean = false;
 ```
 
-* **number: числовое значение** <br>
+* **number:** числовое значение <br>
 C помощью данного типа можно определять как целые числа, так и числа с плавающей точкой. <br>TS поддерживает двоичную, восьмеричную, десятичную и шестнадцатиричную записи чисел.
 ``` TypeScript
 let age: number = 36;
@@ -32,9 +32,46 @@ let hex: number = 0xf00d;
 let binary: number = 0b1010;
 ```
 
-* string: строки
+* **string:** строки
+``` TypeScript
+let firstName: string = "Anton";
+let info: string = `Имя ${firstName}`;
+```
 
-* Array: массивы
+* **Array:** массивы <br>
+В TypeScript массивы могут быть типизированы несколькими способами:
+1: Используя `[]` (наиболее распространенный)
+``` TypeScript
+// Массив чисел
+let numbers: number[] = [1, 2, 3, 4, 5];
+
+// Массив строк
+let strings: string[] = ["a", "b", "c"];
+
+// Массив объектов
+interface User {
+  id: number;
+  name: string;
+}
+let users: User[] = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" }
+];
+```
+2: Используя generic-тип Array `<T>`
+``` TypeScript
+// Эквивалентно number[]
+let numbers: Array<number> = [1, 2, 3];
+
+// Массив массивов чисел (матрица)
+let matrix: Array<Array<number>> = [
+  [1, 2, 3],
+  [4, 5, 6]
+];
+
+// Сложные типы
+let mixed: Array<string | number> = ["hello", 42, "world"];
+```
 
 * Кортежи
 

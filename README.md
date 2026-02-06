@@ -91,14 +91,79 @@ person[3] = "extra";  // ❌ Error: индекс 3 не существует
 ```
 
 * Enum: перечисления
+``` TypeScript
+// Числовые enum (автоинкремент с 0)
+enum Direction {
+  Up,    // 0
+  Down,  // 1
+  Left,  // 2
+  Right  // 3
+}
 
-* Any: произвольный тип
+// Строковые enum
+enum Status {
+  Success = "SUCCESS",
+  Error = "ERROR",
+  Pending = "PENDING"
+}
 
-* Symbol
+// Const enum (удаляется при компиляции)
+const enum Colors {
+  Red = "#FF0000",
+  Green = "#00FF00",
+  Blue = "#0000FF"
+}
+```
 
-* null и undefined: соответствуют значениям null и undefined в javascript
+* Any: произвольный тип (отключает проверку типов)
+``` TypeScript
+let variable: any = "hello";
+variable = 42;        // ✅ OK
+variable = true;      // ✅ OK
+variable.foo();       // ✅ OK (но ошибка в runtime возможна)
+```
+
+* unknown: тип для значений, о которых ничего не известно
+``` TypeScript
+let value: unknown = "hello";
+value = 42;           // ✅ OK
+// value.toFixed();   // ❌ Error: нужно сначала проверить тип
+if (typeof value === "number") {
+  value.toFixed();    // ✅ OK
+}
+```
+
+* void: отсутствие значения (для функций, которые ничего не возвращают)
+``` TypeScript
+function logMessage(message: string): void {
+  console.log(message);
+  // return; // неявно возвращается undefined
+}
+```
 
 * Never: также представляет отсутствие значения и используется в качестве возвращаемого типа функций, которые генерируют или возвращают ошибку
+``` TypeScript
+function throwError(message: string): never {
+  throw new Error(message);
+}
+
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
+
+* null и undefined: соответствуют значениям null (используют, когда нужно обозначить намеренное отсутствие значения объекта (объект с неопределённой структурой)) и undefined (значение не установлено или неизвестно) в JavaScript
+``` TypeScript
+let u: undefined = undefined;
+let n: null = null;
+```
+
+* object: любой не-примитивный тип (объект, массив, функция)
+``` TypeScript
+let obj: object = { x: 1, y: 2 };
+let arr: object = [1, 2, 3];
+let func: object = () => {};
+```
 
 | Когда использовать **`type`** | Когда использовать **`interface`** |
 |-------------------------------|------------------------------------|

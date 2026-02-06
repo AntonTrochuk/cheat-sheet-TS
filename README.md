@@ -8,7 +8,12 @@
 
 | **Когда использовать type** | **Когда использовать interface**|
 |------------------------|-----------------------------|
-Для Union/Intersection типов | Для объектов/классов
+Для Union/Intersection типов <br>
+```TypeScript
+`type Status = 'success' | 'error' | 'pending';
+type ID = string | number;
+```
+| Для объектов/классов
 Для примитивов/алиасов | Для расширения (extends)
 Для кортежей (Tuples) | Для декларативного слияния
 Для Mapped Types | Для библиотек/API контрактов
